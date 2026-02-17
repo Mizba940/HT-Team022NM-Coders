@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diet - SmartFit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+
+/* SAME HEADER */
+header{
+    padding:25px 0;
+    border-bottom:1px solid #1e293b;
+}
+
+header h1{
+    color:#38bdf8;
+}
+
+/* SAME NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:15px 0;
+    background:#1e293b;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+}
+
+.navbar a:hover{
+    color:#38bdf8;
+}
+
+/* SECTION */
+.section{
+    padding:60px 8%;
+}
+
+.section h2{
+    margin-bottom:40px;
+}
+
+/* DIET GRID (Different from workout) */
+.diet-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+/* DIET CARD */
+.diet-card{
+    background:#1e293b;
+    width:300px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+
+.diet-card:hover{
+    transform:translateY(-10px);
+}
+
+.diet-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.diet-card-content{
+    padding:20px;
+}
+
+.diet-card h3{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.diet-card p{
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* SAME FOOTER */
+footer{
+    margin-top:50px;
+    padding:20px;
+    background:#1e293b;
+    color:#94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SmartFit</h1>
+</header>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">BMI</a>
+    <a href="workout.html">Workout</a>
+    <a href="diet.html">Diet</a>
+    <a href="#">Dashboard</a>
+</nav>
+
+<section class="section">
+    <h2>Choose Your Diet Plan</h2>
+
+    <div class="diet-container">
+
+        <div class="diet-card">
+            <img src="weight loss.jpg">
+            <div class="diet-card-content">
+                <h3>Weight Loss</h3>
+                <p>
+                Oats + Fruits <br>
+                Green Salad + Brown Rice <br>
+                Apple / Nuts <br>
+                Veg Soup + Roti
+                </p>
+            </div>
+        </div>
+
+        <div class="diet-card">
+            <img src="muscles.webp">
+            <div class="diet-card-content">
+                <h3>Muscle Gain</h3>
+                <p>
+                Eggs + Milk <br>
+                Chicken + Rice <br>
+                Peanut Butter Sandwich <br>
+                Paneer + Dal + Roti
+                </p>
+            </div>
+        </div>
+
+        <div class="diet-card">
+            <img src="maintenance.jpg">
+            <div class="diet-card-content">
+                <h3>Maintenance</h3>
+                <p>
+                Toast + Eggs <br>
+                Dal + Rice + Veggies <br>
+                Banana / Yogurt <br>
+                Light Dinner + Salad
+                </p>
+            </div>
+        </div>
+
+        <div class="diet-card">
+    <img src="keto diet.jpg">
+    <div class="diet-card-content">
+        <h3>Keto Diet</h3>
+        <p>
+        Eggs + Avocado <br>
+        Grilled Chicken <br>
+        Nuts + Cheese <br>
+        Low-carb Veggies
+        </p>
+    </div>
+</div>
+
+<div class="diet-card">
+    <img src="high protein.jpg">
+    <div class="diet-card-content">
+        <h3>High Protein</h3>
+        <p>
+        Boiled Eggs <br>
+        Paneer / Chicken <br>
+        Protein Shake <br>
+        Dal + Brown Rice
+        </p>
+    </div>
+</div>
+
+<div class="diet-card">
+    <img src="vegetarian.jpg">
+    <div class="diet-card-content">
+        <h3>Vegetarian Plan</h3>
+        <p>
+        Poha / Upma <br>
+        Dal + Roti <br>
+        Sprouts Salad <br>
+        Curd + Fruits
+        </p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 SmartFit | Hackathon Project
+</footer>
+
+</body>
+</html>
