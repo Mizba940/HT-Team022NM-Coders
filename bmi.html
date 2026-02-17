@@ -1,134 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI Calculator</title>
-    <link rel="stylesheet" href="style.css">
-  
-  <!-- Internal CSS (Light Theme) -->
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9; /* light background instead of black */
-    }
+    <meta charset="UTF-8">
+    <title>BMI Calculator - Fitrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .bmi-section {
-      background: #ffffff; /* pure white section */
-      color: #333333;      /* dark text for contrast */
-      padding: 50px 20px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* soft shadow */
-      border-radius: 15px;
-      max-width: 500px;
-      margin: 50px auto;
-    }
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
 
-    .bmi-container h2 {
-      margin-bottom: 10px;
-      font-size: 28px;
-      color: #1e3a8a; /* soft blue heading */
-    }
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: url('health1.jpg') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+        }
 
-    .bmi-container p {
-      margin-bottom: 25px;
-      font-size: 16px;
-      color: #555555;
-    }
+        /* HEADER */
+        .main-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            background: rgba(15,23,42,0.9);
+            border-bottom: 1px solid #1e293b;
+        }
+        .main-header h1 {
+            color: #38bdf8;
+            font-size: 2.5rem;
+        }
 
-    .bmi-form label {
-      display: block;
-      text-align: left;
-      margin: 10px 0 5px;
-      font-weight: 600;
-    }
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(15,23,42,0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #38bdf8;
+        }
 
-    .bmi-form input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-
-    .bmi-form button {
-      width: 100%;
-      padding: 12px;
-      background: #4caf50; /* green button for light theme */
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .bmi-form button:hover {
-      background: #45a049; /* darker green on hover */
-    }
-
-    .bmi-result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #1e3a8a;
-    }
-  </style>
+        /* BMI CARD */
+        .section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .bmi-card {
+            background: rgba(15,23,42,0.9);
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: 2rem auto;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .bmi-card:hover {
+            transform: translateY(-5px);
+        }
+        .bmi-card label {
+            display: block;
+            margin: 0.8rem 0 0.3rem;
+            font-weight: 600;
+            color: #38bdf8;
+            font-size: 1.1rem;
+        }
+        .bmi-card input {
+            width: 90%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .bmi-card input:focus {
+            box-shadow: 0 0 10px #38bdf8;
+        }
+        .btn {
+            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+        }
+        .bmi-result {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+    </style>
 </head>
-
 <body>
-    
+
 <header class="main-header">
     <h1>Fitrack</h1>
 </header>
 
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="bmi.html">BMI</a>
+    <a href="#">Workout</a>
+    <a href="#">Diet</a>
+    <a href="#">Dashboard</a>
+</nav>
 
-  <section class="bmi-section">
-    <div class="bmi-container">
-      <h2>Calculate Your BMI</h2>
-      <p>Check your body mass index easily!</p>
-      <div class="bmi-form">
+<section class="section">
+    <h3>BMI Calculator</h3>
+    <div class="bmi-card">
         <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g., 60" min="1">
+        <input type="number" id="weight" placeholder="e.g., 60">
 
         <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="e.g., 170" min="1">
+        <input type="number" id="height" placeholder="e.g., 170">
 
-        <button onclick="calculateBMI()">Calculate BMI</button>
-      </div>
-      <div class="bmi-result" id="bmiResult"></div>
+        <button class="btn" onclick="calculateBMI()">Calculate</button>
+
+        <div id="result" class="bmi-result"></div>
     </div>
-  </section>
+</section>
+<footer>
+    © 2026 SmartFit | Hackathon Project
+</footer>
+<script>
+function calculateBMI() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const resultDiv = document.getElementById('result');
 
-  <!-- JavaScript -->
-  <script>
-    function calculateBMI() {
-      let weight = document.getElementById("weight").value;
-      let height = document.getElementById("height").value;
+    if(weight > 0 && height > 0){
+        const bmi = (weight / ((height/100) ** 2)).toFixed(1);
+        let status = '';
+        let color = '';
 
-      if(weight > 0 && height > 0) {
-        let bmi = (weight / ((height/100) ** 2)).toFixed(2);
-        let status = "";
+        if(bmi < 18.5) { status = 'Underweight'; color = '#facc15'; }       // yellow
+        else if(bmi < 24.9) { status = 'Normal'; color = '#22c55e'; }      // green
+        else if(bmi < 29.9) { status = 'Overweight'; color = '#f97316'; }  // orange
+        else { status = 'Obese'; color = '#ef4444'; }                       // red
 
-        if(bmi < 18.5) {
-          status = "Underweight 😕";
-        } else if(bmi >= 18.5 && bmi < 24.9) {
-          status = "Normal 🥳";
-        } else if(bmi >= 25 && bmi < 29.9) {
-          status = "Overweight ⚠️";
-        } else {
-          status = "Obese ❌";
-        }
-
-        document.getElementById("bmiResult").innerHTML = `Your BMI is <strong>${bmi}</strong> (${status})`;
-      } else {
+        resultDiv.innerHTML = `Your BMI is <strong>${bmi}</strong> (${status})`;
+        resultDiv.style.color = color;
+    } else {
         alert("Please enter valid weight and height!");
-      }
     }
-  </script>
+}
+</script>
 
 </body>
 </html>

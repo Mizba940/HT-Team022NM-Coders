@@ -8,22 +8,12 @@
 body {
     background: #0f172a;
     color: white;
-    body {
-    background-image: url(health1.jpg);   /* local jpg */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
-}
 }
 
-/* HEADER - Centered */
+/* HEADER CENTER */
 .main-header {
-    display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
-    height: 120px;           
+    text-align: center;
+    padding: 25px 0;
     background: #0f172a;
     border-bottom: 1px solid #1e293b;
 }
@@ -33,18 +23,13 @@ body {
     font-size: 2.5rem;
 }
 
-/* NAVIGATION */
+/* NAVIGATION BELOW HEADER */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     display: flex;
     justify-content: center;
     gap: 40px;
     padding: 15px 0;
-    background: rgba(30, 41, 59, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background: #1e293b;
 }
 
 .navbar a {
@@ -58,16 +43,21 @@ body {
     color: #38bdf8;
 }
 
-/* HERO SECTION */
+
+header h1 {
+    color: #38bdf8;
+}
+
+
+/* HERO WITH BACKGROUND IMAGE */
 .hero {
-    height: 85vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 10%;
     background: linear-gradient(to right, #0f172a, #1e293b);
-    
 }
 
 .hero h2 {
@@ -97,7 +87,6 @@ body {
     transform: scale(1.05);
 }
 
-/* SECTIONS */
 .section {
     padding: 80px 8%;
     text-align: center;
@@ -130,7 +119,6 @@ body {
     background: #334155;
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -138,7 +126,6 @@ footer {
     color: #94a3b8;
 }
 
-/* RESPONSIVE */
 @media(max-width: 768px){
     .hero h2 {
         font-size: 2rem;

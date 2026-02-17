@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Tracking - Fitrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+        body { background: url('health1.jpg') no-repeat center center/cover; color:white; min-height:100vh; }
+
+        /* HEADER */
+        .main-header { display:flex; justify-content:center; align-items:center; height:120px; background: rgba(15,23,42,0.9); border-bottom:1px solid #1e293b; }
+        .main-header h1 { color:#38bdf8; font-size:2.5rem; }
+
+        /* NAVBAR */
+        .navbar { display:flex; justify-content:center; gap:2rem; background: rgba(15,23,42,0.95); padding:1rem 0; position:sticky; top:0; z-index:1000; }
+        .navbar a { color:white; text-decoration:none; font-weight:600; transition:0.3s; }
+        .navbar a:hover { color:#38bdf8; }
+
+        /* SECTION */
+        .section { padding:4rem 2rem; text-align:center; }
+
+        /* ACTIVITY FORM & TABLE */
+        .activity-form { background: rgba(15,23,42,0.9); padding:2rem; border-radius:15px; max-width:800px; margin:2rem auto; box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+        .activity-form input, .activity-form button { padding:0.5rem; margin:0.5rem 0; border-radius:8px; border:none; outline:none; font-size:1rem; }
+        .activity-form button { background: linear-gradient(90deg,#38bdf8,#0ea5e9); color:#0f172a; font-weight:600; cursor:pointer; transition:0.3s; }
+        .activity-form button:hover { background: linear-gradient(90deg,#0ea5e9,#38bdf8); }
+        table { width:100%; border-collapse:collapse; margin-top:1rem; }
+        th, td { padding:0.8rem; border:1px solid #1e293b; text-align:center; }
+        th { background:#0f172a; color:#38bdf8; }
+
+        /* CHARTS */
+        .chart-container { max-width:800px; margin:2rem auto; background: rgba(15,23,42,0.9); padding:2rem; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+        .chart-container img { width:40px; vertical-align:middle; margin-right:0.5rem; }
+
+        /* BADGES */
+        .badges { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:2rem; }
+        .badge { background: linear-gradient(90deg,#38bdf8,#0ea5e9); padding:1rem 2rem; border-radius:15px; font-weight:600; color:#0f172a; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s; display:flex; align-items:center; gap:0.5rem; }
+        .badge img { width:30px; }
+        .badge:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <h1>Fitrack</h1>
+</header>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="bmi.html">BMI</a>
+    <a href="activity.html">Activity</a>
+    <a href="#">Diet</a>
+    <a href="dashboard.html">Dashboard</a>
+</nav>
+
+<section class="section">
+    <h3>Track Your Activity</h3>
+
+    <!-- DAILY LOG FORM -->
+    <div class="activity-form">
+        <h4><img src="exercise-icon.png" alt="Exercise Icon"> Log Today’s Exercise</h4>
+        <input type="date" id="date" required>
+        <input type="text" id="exercise" placeholder="Exercise done">
+        <input type="text" id="reps" placeholder="Reps/Sets">
+        <input type="text" id="duration" placeholder="Duration">
+        <button onclick="addActivity()">Add Log</button>
+
+        <!-- Table to display logs -->
+        <table class="activity-table" id="activityTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Exercise Done</th>
+                    <th>Reps/Sets</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Logs will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-container">
+        <h4><img src="weight-icon.png" alt="Weight Icon"> Weight Over Time</h4>
+        <canvas id="weightChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h4><img src="calories-icon.png" alt="Calories Icon"> Calories Burned Per Week</h4>
+        <canvas id="caloriesChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h4><img src="water-icon.png" alt="Water Icon"> Water Intake Progress</h4>
+        <canvas id="waterChart"></canvas>
+    </div>
+
+    <!-- BADGES -->
+    <div class="badges">
+        <div class="badge"><img src="streak-icon.png" alt="Streak">7-Day Streak Completed</div>
+        <div class="badge"><img src="pushup-icon.png" alt="Push-ups">100 Push-ups Completed</div>
+    </div>
+</section>
+
+<script>
+    // LOG ACTIVITY
+    function addActivity(){
+        const date = document.getElementById('date').value;
+        const exercise = document.getElementById('exercise').value;
+        const reps = document.getElementById('reps').value;
+        const duration = document.getElementById('duration').value;
+
+        if(date && exercise && reps && duration){
+            const table = document.getElementById('activityTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.insertCell(0).innerText = date;
+            newRow.insertCell(1).innerText = exercise;
+            newRow.insertCell(2).innerText = reps;
+            newRow.insertCell(3).innerText = duration;
+
+            // Clear inputs
+            document.getElementById('date').value = '';
+            document.getElementById('exercise').value = '';
+            document.getElementById('reps').value = '';
+            document.getElementById('duration').value = '';
+        } else {
+            alert("Please fill all fields!");
+        }
+    }
+
+    // CHARTS DATA
+    const weightChart = new Chart(document.getElementById('weightChart'), {
+        type: 'line',
+        data: {
+            labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+            datasets: [{
+                label: 'Weight (kg)',
+                data: [60,60.2,60.1,60,59.8,59.7,59.5],
+                borderColor: '#38bdf8',
+                backgroundColor: 'rgba(56, 189, 248,0.2)',
+                tension:0.3
+            }]
+        }
+    });
+
+    const caloriesChart = new Chart(document.getElementById('caloriesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+            datasets: [{
+                label: 'Calories Burned',
+                data: [300,400,350,450,500,380,420],
+                backgroundColor: '#0ea5e9'
+            }]
+        }
+    });
+
+    const waterChart = new Chart(document.getElementById('waterChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Consumed','Remaining'],
+            datasets: [{
+                data: [1.5, 2.5],
+                backgroundColor: ['#38bdf8','#1e293b']
+            }]
+        },
+        options: {
+            circumference: 180,
+            rotation: 270
+        }
+    });
+</script>
+
+</body>
+</html>
