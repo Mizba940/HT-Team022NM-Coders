@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout - SmartFit</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+
+header{
+    padding:25px 0;
+    border-bottom:1px solid #1e293b;
+}
+
+header h1{
+    color:#38bdf8;
+}
+
+.navbar{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:15px 0;
+    background:#1e293b;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+}
+
+.navbar a:hover{
+    color:#38bdf8;
+}
+
+.section{
+    padding:60px 10%;
+}
+
+select{
+    padding:10px;
+    border-radius:8px;
+    margin:20px 0;
+    border:none;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    margin-top:20px;
+    border-radius:15px;
+    display:inline-block;
+    min-width:280px;
+}
+
+button{
+    padding:10px 25px;
+    background:#38bdf8;
+    border:none;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0ea5e9;
+}
+
+footer{
+    margin-top:50px;
+    padding:20px;
+    background:#1e293b;
+    color:#94a3b8;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>SmartFit</h1>
+</header>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">BMI</a>
+    <a href="workout.html">Workout</a>
+    <a href="#">Diet</a>
+    <a href="#">Dashboard</a>
+</nav>
+
+<section class="section">
+    <h2>Select Your Workout Level</h2>
+
+    <select id="level">
+        <option value="">-- Choose Level --</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+    </select>
+
+    <br>
+    <button onclick="showWorkout()">Show Workout</button>
+
+    <div id="result"></div>
+</section>
+
+<footer>
+    © 2026 SmartFit | Hackathon Project
+</footer>
+
+<script>
+function showWorkout(){
+    let level = document.getElementById("level").value;
+    let result = document.getElementById("result");
+
+    if(level === "beginner"){
+        result.innerHTML = `
+        <div class="card">
+        <h3>Beginner Workout</h3>
+        10 Push-ups <br>
+        15 Squats <br>
+        20 Jumping Jacks <br>
+        30 sec Plank
+        </div>`;
+    }
+
+    else if(level === "intermediate"){
+        result.innerHTML = `
+        <div class="card">
+        <h3>Intermediate Workout</h3>
+        20 Push-ups <br>
+        25 Squats <br>
+        30 Mountain Climbers <br>
+        45 sec Plank
+        </div>`;
+    }
+
+    else if(level === "advanced"){
+        result.innerHTML = `
+        <div class="card">
+        <h3>Advanced Workout</h3>
+        40 Push-ups <br>
+        50 Squats <br>
+        1 min Plank <br>
+        20 Burpees
+        </div>`;
+    }
+
+    else{
+        result.innerHTML = "<p>Please select a level.</p>";
+    }
+}
+</script>
+
+</body>
+</html>
