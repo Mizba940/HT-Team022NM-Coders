@@ -8,6 +8,14 @@
 body {
     background: #0f172a;
     color: white;
+    body {
+    background-image: url(health1.jpg);   /* local jpg */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+}
 }
 
 /* HEADER - Centered */
@@ -59,6 +67,7 @@ body {
     text-align: center;
     padding: 0 10%;
     background: linear-gradient(to right, #0f172a, #1e293b);
+    
 }
 
 .hero h2 {
