@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - SmartFit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:url('bg.jpg') no-repeat center center/cover;
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            color:white;
+            position:relative;
+        }
+
+        body::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.7);
+            top:0;
+            left:0;
+            z-index:-1;
+        }
+
+        header{
+            text-align:center;
+            padding:1.5rem;
+            background:rgba(15,23,42,0.9);
+        }
+
+        header h1{
+            color:#38bdf8;
+        }
+
+        main{
+            flex:1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:2rem;
+        }
+
+        .register-box{
+            background:rgba(30,41,59,0.9);
+            padding:3rem 2.5rem;
+            width:380px;
+            border-radius:20px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.6);
+            text-align:center;
+        }
+
+        .register-box h2{
+            margin-bottom:2rem;
+            color:#38bdf8;
+        }
+
+        .register-box input{
+            width:100%;
+            padding:0.9rem;
+            margin:0.8rem 0;
+            border:none;
+            border-radius:10px;
+            outline:none;
+            font-size:1rem;
+        }
+
+        .btn{
+            width:100%;
+            padding:0.9rem;
+            margin-top:1rem;
+            border:none;
+            border-radius:10px;
+            font-weight:600;
+            cursor:pointer;
+            background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+            color:#0f172a;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+        }
+
+        .extra{
+            margin-top:1.2rem;
+            font-size:0.9rem;
+        }
+
+        .extra a{
+            color:#38bdf8;
+            text-decoration:none;
+        }
+
+        footer{
+            text-align:center;
+            padding:1rem;
+            background:rgba(15,23,42,0.9);
+            font-size:0.9rem;
+        }
+
+        @media(max-width:600px){
+            .register-box{
+                width:100%;
+                max-width:340px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SmartFit</h1>
+</header>
+
+<main>
+    <div class="register-box">
+        <h2>📝 Create Account</h2>
+
+        <input type="text" placeholder="👤 Full Name">
+        <input type="email" placeholder="📧 Email">
+        <input type="password" placeholder="🔑 Password">
+        <input type="password" placeholder="🔐 Confirm Password">
+
+        <button class="btn">🚀 Register</button>
+
+        <div class="extra">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 SmartFit | Hackathon Project
+</footer>
+
+</body>
+</html>
