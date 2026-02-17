@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - SmartFit</title>
+    <title>Register - SmartFit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         }
 
         body{
-            background:url('yoga.jpg') no-repeat center center/cover;
+            background:url('bg.jpg') no-repeat center center/cover;
             min-height:100vh;
             display:flex;
             flex-direction:column;
@@ -24,32 +24,27 @@
             position:relative;
         }
 
-        /* Dark overlay */
         body::before{
             content:"";
             position:absolute;
-            top:0;
-            left:0;
             width:100%;
             height:100%;
             background:rgba(0,0,0,0.7);
+            top:0;
+            left:0;
             z-index:-1;
         }
 
-        /* HEADER */
         header{
-            background:rgba(15,23,42,0.9);
-            padding:1.5rem 2rem;
             text-align:center;
-            border-bottom:1px solid #334155;
+            padding:1.5rem;
+            background:rgba(15,23,42,0.9);
         }
 
         header h1{
             color:#38bdf8;
-            font-size:2.2rem;
         }
 
-        /* MAIN CONTENT */
         main{
             flex:1;
             display:flex;
@@ -58,21 +53,21 @@
             padding:2rem;
         }
 
-        .login-box{
+        .register-box{
             background:rgba(30,41,59,0.9);
             padding:3rem 2.5rem;
-            width:350px;
+            width:380px;
             border-radius:20px;
             box-shadow:0 15px 35px rgba(0,0,0,0.6);
             text-align:center;
         }
 
-        .login-box h2{
+        .register-box h2{
             margin-bottom:2rem;
             color:#38bdf8;
         }
 
-        .login-box input{
+        .register-box input{
             width:100%;
             padding:0.9rem;
             margin:0.8rem 0;
@@ -109,23 +104,17 @@
             text-decoration:none;
         }
 
-        .extra a:hover{
-            text-decoration:underline;
-        }
-
-        /* FOOTER */
         footer{
-            background:rgba(15,23,42,0.9);
             text-align:center;
             padding:1rem;
-            border-top:1px solid #334155;
+            background:rgba(15,23,42,0.9);
             font-size:0.9rem;
         }
 
         @media(max-width:600px){
-            .login-box{
+            .register-box{
                 width:100%;
-                max-width:320px;
+                max-width:340px;
             }
         }
     </style>
@@ -138,17 +127,18 @@
 </header>
 
 <main>
-    <div class="login-box">
-        <h2>🔐 Login</h2>
+    <div class="register-box">
+        <h2>📝 Create Account</h2>
 
-        <input type="text" placeholder="👤 Username">
+        <input type="text" placeholder="👤 Full Name">
+        <input type="email" placeholder="📧 Email">
         <input type="password" placeholder="🔑 Password">
+        <input type="password" placeholder="🔐 Confirm Password">
 
-        <button class="btn">🚀 Login</button>
+        <button class="btn">🚀 Register</button>
 
         <div class="extra">
-            <p>Forgot Password? <a href="login.html">Reset</a></p>
-            <p>New user? <a href="regesitration.html">Create account</a></p>
+            <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
 </main>
