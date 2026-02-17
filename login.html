@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - SmartFit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:url('health3.png') no-repeat center center/cover;
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            color:white;
+            position:relative;
+        }
+
+        /* Dark overlay */
+        body::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.7);
+            z-index:-1;
+        }
+
+        /* HEADER */
+        header{
+            background:rgba(15,23,42,0.9);
+            padding:1.5rem 2rem;
+            text-align:center;
+            border-bottom:1px solid #334155;
+        }
+
+        header h1{
+            color:#38bdf8;
+            font-size:2.2rem;
+        }
+
+        /* MAIN CONTENT */
+        main{
+            flex:1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:2rem;
+        }
+
+        .login-box{
+            background:rgba(30,41,59,0.9);
+            padding:3rem 2.5rem;
+            width:350px;
+            border-radius:20px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.6);
+            text-align:center;
+        }
+
+        .login-box h2{
+            margin-bottom:2rem;
+            color:#38bdf8;
+        }
+
+        .login-box input{
+            width:100%;
+            padding:0.9rem;
+            margin:0.8rem 0;
+            border:none;
+            border-radius:10px;
+            outline:none;
+            font-size:1rem;
+        }
+
+        .btn{
+            width:100%;
+            padding:0.9rem;
+            margin-top:1rem;
+            border:none;
+            border-radius:10px;
+            font-weight:600;
+            cursor:pointer;
+            background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+            color:#0f172a;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+        }
+
+        .extra{
+            margin-top:1.2rem;
+            font-size:0.9rem;
+        }
+
+        .extra a{
+            color:#38bdf8;
+            text-decoration:none;
+        }
+
+        .extra a:hover{
+            text-decoration:underline;
+        }
+
+        /* FOOTER */
+        footer{
+            background:rgba(15,23,42,0.9);
+            text-align:center;
+            padding:1rem;
+            border-top:1px solid #334155;
+            font-size:0.9rem;
+        }
+
+        @media(max-width:600px){
+            .login-box{
+                width:100%;
+                max-width:320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SmartFit</h1>
+</header>
+
+<main>
+    <div class="login-box">
+        <h2>🔐 Login</h2>
+
+        <input type="text" placeholder="👤 Username">
+        <input type="password" placeholder="🔑 Password">
+
+        <button class="btn">🚀 Login</button>
+
+        <div class="extra">
+            <p>Forgot Password? <a href="#">Reset</a></p>
+            <p>New user? <a href="#">Create account</a></p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 SmartFit | Hackathon Project
+</footer>
+
+</body>
+</html>
